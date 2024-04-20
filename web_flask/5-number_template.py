@@ -16,7 +16,7 @@ The web application listens on 0.0.0.0, port 5000, and includes six routes:
 The option strict_slashes=False is used in the route definitions.
 """
 
-from flask import Flask, escape, render_template
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
