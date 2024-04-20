@@ -8,7 +8,7 @@ The web application listens on 0.0.0.0, port 5000, and includes five routes:
 - `/c/<text>`: Displays "C " followed by the value of the text variable,
   replacing underscore _ symbols with a space.
 - `/python/<text>`: Displays "Python " followed by the value of the text variable,
-  replacing underscore _ symbols with a space. The default value of text is "is cool".
+  replacing underscore symbols with a space. The default value of text is "is cool".
 - `/number/<n>`: Displays "n is a number" only if n is an integer.
 
 The option strict_slashes=False is used in the route definitions.
@@ -39,7 +39,7 @@ def cisfun(text):
 
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
-def pythoniscool(text):
+def pythoniscool(text='is cool'):
     """Display "Python " followed by the value of the text variable."""
     return 'Python ' + text.replace('_', ' ')
 
