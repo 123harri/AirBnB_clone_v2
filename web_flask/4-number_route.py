@@ -32,22 +32,22 @@ def display_hbnb():
 
 
 @app.route('/c/<text>', strict_slashes=False)
-def display_c_text(text):
+def cisfun(text):
     """Display "C " followed by the value of the text variable."""
-    return 'C {}'.format(escape(text).replace('_', ' '))
+    return 'C ' + text.replace('_', ' ')
 
 
-@app.route('/python/', defaults={'text': 'is_cool'}, strict_slashes=False)
+@app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
-def display_python_text(text):
+def pythoniscool(text):
     """Display "Python " followed by the value of the text variable."""
-    return 'Python {}'.format(escape(text).replace('_', ' '))
+    return 'Python ' + text.replace('_', ' ')
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
-def display_number(n):
+def imanumber(n):
     """Display "n is a number" only if n is an integer."""
-    return '{} is a number'.format(n)
+    return "{:d} is a number".format(n)
 
 
 if __name__ == '__main__':

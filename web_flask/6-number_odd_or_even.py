@@ -2,7 +2,7 @@
 """
 This script starts a Flask web application.
 
-The web application listens on 0.0.0.0, port 5000, and includes six routes:
+The web application listens on 0.0.0.0, port 5000, and includes seven routes:
 - `/`: Displays "Hello HBNB!"
 - `/hbnb`: Displays "HBNB"
 - `/c/<text>`: Displays "C " followed by the value of the text variable,
@@ -12,11 +12,13 @@ The web application listens on 0.0.0.0, port 5000, and includes six routes:
 - `/number/<n>`: Displays "n is a number" only if n is an integer.
 - `/number_template/<n>`: Displays a HTML page only if n is an integer.
   The HTML page contains an H1 tag with the text "Number: n".
+- `/number_odd_or_even/<n>`: Displays a HTML page only if n is an integer.
+  The HTML page contains an H1 tag with the text "Number: n is even|odd".
 
 The option strict_slashes=False is used in the route definitions.
 """
 
-from flask import Flask, escape, render_template
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -41,7 +43,7 @@ def cisfun(text):
 
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
-def pythoniscool(text):
+def pythoniscool(text='is_cool'):
     """Display "Python " followed by the value of the text variable."""
     return 'Python ' + text.replace('_', ' ')
 
@@ -56,6 +58,18 @@ def imanumber(n):
 def numberandtemplate(n):
     """Display HTML page with an H1 tag containing the text "Number: n"."""
     return render_template('5-number.html', n=n)
+
+
+@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
+def oddorevenness(n):
+    """HTML page with an H1 tag containing text "Number: n is even|odd"."""
+    if n % 2 == 0:
+        evenness = 'even'
+    else:
+        evenness = 'odd'
+    return render_template('6-number_odd_or_even.html', n=n,
+                           evenness=evenness)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
