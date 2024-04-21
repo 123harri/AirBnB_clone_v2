@@ -7,8 +7,9 @@ The web application listens on 0.0.0.0, port 5000, and includes seven routes:
 - `/hbnb`: Displays "HBNB"
 - `/c/<text>`: Displays "C " followed by the value of the text variable,
   replacing underscore _ symbols with a space.
-- `/python/<text>`: Displays "Python " followed by the value of the text variable,
-  replacing underscore _ symbols with a space. The default value of text is "is cool".
+- `/python/<text>`: Display "Python " followed by the value of text variable,
+  replacing underscore _ symbols with a space.
+  The default value of text is "is cool".
 - `/number/<n>`: Displays "n is a number" only if n is an integer.
 - `/number_template/<n>`: Displays a HTML page only if n is an integer.
   The HTML page contains an H1 tag with the text "Number: n".
